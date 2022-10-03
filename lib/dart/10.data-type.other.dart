@@ -6,7 +6,7 @@ void main() {
 
   // Runes 可以将 UTF-32 字符集表示的内容转成符号
   Runes input = Runes('\u{1f680}');
-  // print(String.fromCharCode(input));
+  print(String.fromCharCodes(input));
 
   // Symbol 声明
 
