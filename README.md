@@ -178,3 +178,20 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 - 无法通过下标取值
 - 具有集合特有的操作
  - 例如： 求交集 并集 差集
+
+### 07.数据类型Map
+- Map是一个无序的键值对（key-value）映射， 通常被成为哈希 或者 字典.
+- 声明方式 Map m = {key1: value1, key2: value2};
+- Map m2 = new Map(); m2['key'] = value;
+
+### 08. 数据类型 其他
+- Runes(符文)
+- Runes 对象是一个 32 位的字符对象， 它可以把文字转换成符号表情 或者 特定的文字
+- https://copychar.cc
+
+- Symbol
+- 在Dart中符号用#开头来表示的标识符
+
+- dynamic
+- 动态数据类型
+
