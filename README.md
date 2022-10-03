@@ -267,3 +267,26 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
         - async 函数返回一个Future, await用于等待Future
     - Future详情
         - https://api/dart.dev/stable/dart-async/Future-class.html
+
+### 11. 类与对象
+- 01.类
+  - 简介
+    - 通过class关键字声明代码段, 包含属性和方法.
+    - 属性: 用来描述类的变量
+    - 方法: 类中的函数成为类的方法
+    - 对象是类的实例化的结果
+    - 编程方式
+      - 面向对象 OOP
+      - 面向过程 POP
+  - 构造器（构造函数）
+  - 访问修饰
+  - Getter 和 Setter
+  - 初始化列表
+  - static
+  - 元数据
+- 02.继承
+- 03.抽象类
+- 04.接口
+- 05.混入
+- 06.泛型
+- 07.枚举
