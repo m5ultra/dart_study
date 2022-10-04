@@ -6,6 +6,10 @@ T getData02<T>(T v) {
   return v;
 }
 
+getData03<T>(T v) {
+  return v;
+}
+
 void main() {
   print(getData('getData'));
   // print(getData(1)); // The argument type 'int' can't be assigned to the parameter type 'String'
