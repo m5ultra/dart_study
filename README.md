@@ -342,5 +342,14 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - 接口可是看作看成一个一个的小零件。 类实现接口就相当于组装零件
   - 普通类实现了接口 必须重写接口中所有的属性和方法
 - 05.混入
+  - 混入(Mixin) 是一段公共代码。 混入有两种声明方式：
+    - 将类当作混入 class MixinA {...}
+      - 作为 Mixin 的类只能继承自 Object, 不能继承其他类
+      - 作为 Mixin 的类不能有构造函数
+    - 使用 mixin 关键字声明 mixin MixinB {...}
+  - 混入 (Mixin) 可以提高代码复用的效率, 普通类可以通过 with 来使用混入
+    - class MyClass with MixinA, MixinB {...}
+  - 使用多个混入时, 后引入的混入会覆盖之前引入混入中的重复内容
+    - MixinA 和 MixinB 中都有hello()方法, MyClass 会使用 MixinB中的 hello 方法
 - 06.泛型
 - 07.枚举
