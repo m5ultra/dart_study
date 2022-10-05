@@ -357,8 +357,8 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - 泛型类
     - 泛型接口
   - 通常, 在尖括号中, 使用一个字母来代表类型, 例如 E, T, S, K, 和 V等
-  - 返回类型 函数名 <输入类型>(参数类型 参数) { 
-  -   函数体 
+  - 返回类型 函数名 <输入类型>(参数类型 参数) {
+  -   函数体
   - }
   - 作用： 使用泛型可以减少重复的代码
 - 07.枚举
@@ -381,7 +381,7 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - https://pub.dev/
     - pub 命令
 - 系统库 也叫核心库 是 Dart 提供的常用内置库
-  - 不需要单独引入就可以使用 
+  - 不需要单独引入就可以使用
   - 系统库的引入
   - import 'dart:库名称'
 - 自定义库
@@ -398,7 +398,7 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - 使用：
     - 在项目目录下创建pubspec.yaml
     - 在pubspec.yaml 中声明第三库 (依赖)
-    - 命令行中进入pubspec.yaml 所在目录 执行 pub get / pub upgrade / pub outdated 
+    - 命令行中进入pubspec.yaml 所在目录 执行 pub get / pub upgrade / pub outdated
     - 在项目中引入第三方库
     - import 'package:xx/oo.dart'
   - 每个第三方库 必须包含一个pubspec.yaml
@@ -454,13 +454,13 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 		 - TextDirection
 		 - TextStyle
 			 - Colors 指定文本的颜色
-			 - FontWeight 
-			 - FontStyle 
+			 - FontWeight
+			 - FontStyle
 		 - TextAlign
 		 - TextOverflow
 		 - maxLines
 	 - 02。RichText 与 TextSpan 给一段文本声明不同的样式
-   
+
      - 03。下载并导入字体
        - https://fonts.google.com/
        - 解压压缩包 把字体复制到项目中
@@ -490,6 +490,33 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
          - Alignment
        - transform
          - Matrix4 (平移-translate 旋转-rotate 缩放-scale 斜切-skew )
+     - 07.线性布局
+       - Column
+         - Column 中的主轴方向是垂直方向
+         - mainAxisAlignment 主轴对其方向
+         - crossAxisAlignment 交叉轴对其方向
+         - children 内容
+       - Row
+         - 主轴方向是 水平方向 其他和 Column 一致
+     - 08.Flex
+       - 指定主轴方向 direction
+       - maxAxisDirection 声明主轴对其方式
+       - textDirection 声明水平方向的排列顺序
+       - crossAxisDirection 声明交叉轴方向的对其方式
+       - verticalDirection 声明垂直方向的排列顺序 
+       - children
+     - 09.Expanded
+       - 可伸缩组建
+       - flex 声明弹性布局所占的比例
+       - child 自组建
+     - 10.流式布局
+       - Wrap 流式布局 解决内容溢出问题
+       - spacing 水平方向子组建的间距
+       - alignment 主轴方向的对齐方式
+       - runSpacing 纵轴方向的对齐间距
+       - runAlignment 纵轴方向的对齐方式
+       - Chip 标签
+       - CircleAvatar 圆形头像
  - 布局组建
  - 按钮组建
  - 图片组建
