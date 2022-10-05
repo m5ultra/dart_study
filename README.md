@@ -380,9 +380,10 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - Dart 生态
     - https://pub.dev/
     - pub 命令
-- 系统库
+- 系统库 也叫核心库 是 Dart 提供的常用内置库
+  - 不需要单独引入就可以使用 
   - 系统库的引入
-  - import 'dart:库名称';
+  - import 'dart:库名称'
 - 自定义库
   - 通过 library 来声明库
     - 每个 Dart 文件默认都是一个库, 只是没有通过 library 关键字来显示的声明
