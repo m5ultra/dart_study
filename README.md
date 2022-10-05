@@ -391,6 +391,19 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - 通过 import 来引入库
   - 通过 part 和 part of 来组装库
 - 第三方库
+  - 来源
+    - https://pub.dev
+    - https://pub.flutter-io.cn/packages
+    - https://pub.dartlang.org/flutter
+  - 使用：
+    - 在项目目录下创建pubspec.yaml
+    - 在pubspec.yaml 中声明第三库 (依赖)
+    - 命令行中进入pubspec.yaml 所在目录 执行 pub get / pub upgrade / pub outdated 
+    - 在项目中引入第三方库
+    - import 'package:xx/oo.dart'
+  - 每个第三方库 必须包含一个pubspec.yaml
+  - pubspec.yaml
+    - 详情： https://dart.cn/toos/pub/pubspec
 - 引入部分库
   - 引入部分库的关键字 show hide 多个内容用逗号分割
     - 包含引入 (show)
@@ -402,3 +415,32 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 
 - 通过 part, part of 来组装复杂库的关键字
 - 使用： 组装库的时候拆分成多个文件
+
+
+## Flutter 基础知识
+
+### 项目目录介绍
+
+#### 入口文件 入口方法
+
+> 入口文件 lib 入口方法 runApp
+
+#### Material Design (Google 推出的前端UI解决方案)
+- 官网：
+  - https://www.material.io/
+  - https://www.material-io.cn/
+
+#### Flutter 中一切内容都是组建
+- 组建分类
+  - 有状态组建 (StateFulWidget)
+  - 无状态组建 (StateLessWidget)
+
+
+### Flutter
+### 初始化项目
+### 基础组建
+### 第三方组建
+### 状态管理
+### 路由与导航
+### 表单
+### 其他
