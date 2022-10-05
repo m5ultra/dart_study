@@ -362,3 +362,29 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - }
   - 作用： 使用泛型可以减少重复的代码
 - 07.枚举
+  - 数量固定的常量值, 通过enum关键字声明
+    - enum Color {red, green, blue}
+  - 枚举的values常量, 可以获取所有枚举值列表
+    - List<Color> colors = Color.values;
+  - 可以通过 index 获取值的索引
+    - assert(Color.green.index == 1);
+
+### 12. 库与生态
+- 简介
+  - Dart 中的库就是包含特定功能的模块。
+    - 可能包含单个文件, 也可能包含多个多个文件。
+  - 按照库的作者划分, 库可以分为三类
+    - 自定库 工程师自己写的
+    - 系统库 Dart自带的
+    - 第三方库 Dart生态的
+  - Dart 生态
+    - https://pub.dev/
+    - pub 命令
+- 系统库
+- 自定义库
+  - 通过 library 来声明库
+    - 每个 Dart 文件默认都是一个库, 只是没有通过 library 关键字来显示的声明
+    - Dart 使用 _ (下划线) 开头的标识符, 表示库内访问可见 (私有)
+  - 通过 import 来引入库
+  - 通过 part 和 part of 来组装库
+- 第三方库
