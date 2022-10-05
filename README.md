@@ -390,3 +390,7 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - 通过 import 来引入库
   - 通过 part 和 part of 来组装库
 - 第三方库
+- 引入部分库
+  - 引入部分库的关键字 show hide 多个内容用逗号分割
+    - 包含引入 (show)
+    - 排除引入 (hide)
