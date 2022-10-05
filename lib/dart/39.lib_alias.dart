@@ -1,5 +1,5 @@
 import 'lib/custom.dart';
-import 'lib/functions.dart' as functions; // 引入作为 functions
+import 'lib/functions.dart' as functions; // 给库增加前缀 解决命名冲突的问题
 
 void main () {
 f1();
