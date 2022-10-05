@@ -450,7 +450,7 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 ### 初始化项目
 ### 基础组建
  - 常用组建
-	 - Text组建
+	 - 01。Text组建
 		 - TextDirection
 		 - TextStyle
 			 - Colors 指定文本的颜色
@@ -459,14 +459,37 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 		 - TextAlign
 		 - TextOverflow
 		 - maxLines
-	 - RichText 与 TextSpan 给一段文本声明不同的样式
-     - 下载并导入字体
-     - https://fonts.google.com/
-     - 解压压缩包 把字体复制到项目中
-     - 在pubspec.yaml 中声明字体
-     - 使用
-       - 在整个项目中使用默认字体
-       - 在某个组建中设置自定义字体
+	 - 02。RichText 与 TextSpan 给一段文本声明不同的样式
+   
+     - 03。下载并导入字体
+       - https://fonts.google.com/
+       - 解压压缩包 把字体复制到项目中
+       - 在pubspec.yaml 中声明字体
+       - 使用
+         - 在整个项目中使用默认字体
+         - 在某个组建中设置自定义字体
+     - 04。Icon
+       - Flutter 中的图标库
+       - Icon(Icons.图标名称)
+       - 在线预览的地址
+       - https://material.io/resources/icons
+     - 05.Color 自定义颜色
+       - Flutter中通过ARGB来声明颜色
+       - const Color(0xFF42A5F5) 16进制的ARGB = FF(透明度) + 六位十六进制颜色
+       - const Color.formARGB(0xFF, 0x42, 0xA5, 0xF5)
+       - const Color.formARGB(255, 66, 165, 245)
+       - const Color.formRGBO(66, 165, 245, 1.0)
+       - Colors.blue
+     - 06.Container
+       - child 声明子组建
+       - padding(margin)
+         - EdgeInsets (all() fromLTRB() only())
+       - decoration
+         - BoxDecoration (边框 圆角 渐变 阴影 背景色 背景图片)
+       - alignment
+         - Alignment
+       - transform
+         - Matrix4 (平移-translate 旋转-rotate 缩放-scale 斜切-skew )
  - 布局组建
  - 按钮组建
  - 图片组建
