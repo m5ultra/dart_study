@@ -54,7 +54,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -90,3 +89,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: FiraCode
+      fonts:
+        - asset: fonts/Fira_Code/static/FiraCode-Bold.ttf
+        - asset: fonts/Fira_Code/static/FiraCode-Regular.ttf
+          style: italic
+          weight: 900

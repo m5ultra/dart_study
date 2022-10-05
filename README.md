@@ -435,10 +435,43 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - 有状态组建 (StateFulWidget)
   - 无状态组建 (StateLessWidget)
 
+#### MaterialApp
+- title (任务管理器中的标题)
+- home 主内容
+- debugShowCheckedModeBanner 是否显示屏幕左上角的调试标记
+#### Scaffold 骨架 脚手架
+- appBar (应用头部)
+- body(应用主题)
+- floatingActionButton (浮动按钮)
+- drawer (左侧抽屉)
+- endDrawer (右侧抽屉)
+- bottomNavigationBar (底部导航菜单)
 
-### Flutter
 ### 初始化项目
 ### 基础组建
+ - 常用组建
+	 - Text组建
+		 - TextDirection
+		 - TextStyle
+			 - Colors 指定文本的颜色
+			 - FontWeight 
+			 - FontStyle 
+		 - TextAlign
+		 - TextOverflow
+		 - maxLines
+	 - RichText 与 TextSpan 给一段文本声明不同的样式
+     - 下载并导入字体
+     - https://fonts.google.com/
+     - 解压压缩包 把字体复制到项目中
+     - 在pubspec.yaml 中声明字体
+     - 使用
+       - 在整个项目中使用默认字体
+       - 在某个组建中设置自定义字体
+ - 布局组建
+ - 按钮组建
+ - 图片组建
+ - 列表组建
+ - 其他组建
 ### 第三方组建
 ### 状态管理
 ### 路由与导航
