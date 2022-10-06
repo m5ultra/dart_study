@@ -3,11 +3,11 @@
   <uses-permission android:name='android.permission.INTERNET'/>
    <application
         android:label="f_lagou"
+        android:usesCleartextTraffic="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
-            android:usesClearTextTraffic="true"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"

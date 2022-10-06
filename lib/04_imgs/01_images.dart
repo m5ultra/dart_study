@@ -28,23 +28,19 @@ class ImageDemo extends StatelessWidget {
       child: Column(
         children: [
           const Text('图片使用'),
+          Image.asset(
+            'images/001.jpg',
+            width: 100,
+          ),
           Image.asset('images/android-chrome-192x192.png'),
           Image.network(
             'https://img14.360buyimg.com/n0/jfs/t1/98075/31/32789/73025/6324a6d5E0badc088/7017967a2087ea19.jpg.avif',
-            width: 200,
-          ),
-          TextButtonTheme(
-            data: TextButtonThemeData(
-              style: ButtonStyle(
-                textStyle: MaterialStateProperty.all(
-                  TextStyle(fontSize: 48),
-                ),
-              ),
-            ),
-            child: TextButton(
-              onPressed: () {},
-              child: const Text('Text Button'),
-            ),
+            width: 300,
+            height: 300,
+            scale: 0.5,
+            color: Colors.red,
+            colorBlendMode: BlendMode.colorBurn,
+            fit: BoxFit.cover,
           ),
         ],
       ),
