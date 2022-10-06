@@ -140,8 +140,7 @@ const reg = RegExp(s);
 - 布尔类型只有两个值 true false
 - 对变量类型判断时 要显式地检查布尔值
 
-```dart
-
+```
 const name = '0';
 
 if(
@@ -269,153 +268,154 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
         - https://api/dart.dev/stable/dart-async/Future-class.html
 
 ### 11. 类与对象
+
 - 01.类
-  - 简介
-    - 通过class关键字声明代码段, 包含属性和方法.
-    - 属性: 用来描述类的变量
-    - 方法: 类中的函数成为类的方法
-    - 对象是类的实例化的结果
-    - 编程方式
-      - 面向对象 OOP
-      - 面向过程 POP
-  - 构造器（构造函数）
-  - 默认构造函数
-    - 与类名同名, 在实例化时, 自动被调用
-  - 命名构造函数
-    - 在类中使用命名构造器(类名.函数名) 实现多个构造器, 可以提供额外的清晰度
-  - 常量构造函数
-    - 如果类声明的对象不会改变, 您可以通过常量构造函数使这些对象成为编译时对象
-  - 工厂构造函数
-    - 通过factory 声明， 工厂函数不会自动生成实例, 而是通过代码来决定返回的实例
-  - 访问修饰
-    - Dart 与 Typescrip 不同 没有访问修饰符 (public, protected, private)
-    - Dart 类中, 默认的访问修饰符是公开的 (即 public)
-    - 如果 属性 或 方法 以_(下划线) 开头, 则表示私有属性 (即 private)
-  - Getter 和 Setter
-    - Getter (获取器) 是通过 get 关键字修饰的方法
-      - 函数没有小括号 访问时也没有小括号 （像访问属性一样访问方法）
-    - Setter (修改器) 是通过 set 关键字修饰的方法
-      - 访问时 像设置属性一样给函数传参
-  - 初始化列表
-    - 作用：在构造函数中设置属性的默认值
-    - 时机：在构造函数体执行之前
-    - 语法：使用逗号分割初始化表达式
-  - static
-    - static 关键字指定静态成员 (静态属性 静态方法)
-    - 静态成员 可以 通过类名称直接访问(不需要实例化)
-    - 实例化是比较消耗资源的 声明静态成员 可以提高程序性能
-    - 静态方法不能访问非静态成员 非静态方法可以访问静态成员
-      - 静态方法中不能使用this 关键字
-      - 不能通过this关键字 访问静态属性
-  - 元数据
-    - 元数据@开头 可以给代码标记一些额外的信息
-      - 元数据可以用在 库 类 构造器 函数 字段 参数 或变量声明的前面
-      - e.g： override (重写)
-      - 某方法添加该注解后 表示重写了父类的方法的同名方法
-      - @required (必填)
-      - 可以通过 @required 来注解Dart中的命名参数, 用来指示他是必填参数
-      - @deprecated (不建议使用)
-      - 若某类 或 某方法加上注解之后, 表示此方法 或 类 不再建议使用
+    - 简介
+        - 通过class关键字声明代码段, 包含属性和方法.
+        - 属性: 用来描述类的变量
+        - 方法: 类中的函数成为类的方法
+        - 对象是类的实例化的结果
+        - 编程方式
+            - 面向对象 OOP
+            - 面向过程 POP
+    - 构造器（构造函数）
+    - 默认构造函数
+        - 与类名同名, 在实例化时, 自动被调用
+    - 命名构造函数
+        - 在类中使用命名构造器(类名.函数名) 实现多个构造器, 可以提供额外的清晰度
+    - 常量构造函数
+        - 如果类声明的对象不会改变, 您可以通过常量构造函数使这些对象成为编译时对象
+    - 工厂构造函数
+        - 通过factory 声明， 工厂函数不会自动生成实例, 而是通过代码来决定返回的实例
+    - 访问修饰
+        - Dart 与 Typescrip 不同 没有访问修饰符 (public, protected, private)
+        - Dart 类中, 默认的访问修饰符是公开的 (即 public)
+        - 如果 属性 或 方法 以_(下划线) 开头, 则表示私有属性 (即 private)
+    - Getter 和 Setter
+        - Getter (获取器) 是通过 get 关键字修饰的方法
+            - 函数没有小括号 访问时也没有小括号 （像访问属性一样访问方法）
+        - Setter (修改器) 是通过 set 关键字修饰的方法
+            - 访问时 像设置属性一样给函数传参
+    - 初始化列表
+        - 作用：在构造函数中设置属性的默认值
+        - 时机：在构造函数体执行之前
+        - 语法：使用逗号分割初始化表达式
+    - static
+        - static 关键字指定静态成员 (静态属性 静态方法)
+        - 静态成员 可以 通过类名称直接访问(不需要实例化)
+        - 实例化是比较消耗资源的 声明静态成员 可以提高程序性能
+        - 静态方法不能访问非静态成员 非静态方法可以访问静态成员
+            - 静态方法中不能使用this 关键字
+            - 不能通过this关键字 访问静态属性
+    - 元数据
+        - 元数据@开头 可以给代码标记一些额外的信息
+            - 元数据可以用在 库 类 构造器 函数 字段 参数 或变量声明的前面
+            - e.g： override (重写)
+            - 某方法添加该注解后 表示重写了父类的方法的同名方法
+            - @required (必填)
+            - 可以通过 @required 来注解Dart中的命名参数, 用来指示他是必填参数
+            - @deprecated (不建议使用)
+            - 若某类 或 某方法加上注解之后, 表示此方法 或 类 不再建议使用
 - 02.继承
-  - 根据类的先后顺序 可以将类分为父类 和 子类
-    - 继承后, 子类可以使用父类中 可见的内容(属性或方法)
-    - 子类中 可以通过@override 元数据来标记 "覆写" 的方法
-    - "覆写"方法: 子类中与父类中同名的方法
-    - 子类中, 可以通过super关键字来引用父类中 可见的方法
-      - 属性
-      - 方法(普通构造函数, 命名构造函数)
+    - 根据类的先后顺序 可以将类分为父类 和 子类
+        - 继承后, 子类可以使用父类中 可见的内容(属性或方法)
+        - 子类中 可以通过@override 元数据来标记 "覆写" 的方法
+        - "覆写"方法: 子类中与父类中同名的方法
+        - 子类中, 可以通过super关键字来引用父类中 可见的方法
+            - 属性
+            - 方法(普通构造函数, 命名构造函数)
 - 03.抽象类
-  - 抽象类使用 abstract 关键字修饰的类
-  - 抽象类的作用是充当普通类的模板, 约定一些必要的属性和方法
-  - 抽象方法 是指 没有方法体的方法
-  - 抽象类中一般都有抽象方法 也可以没有抽象方法
-  - 普通类中 不能有抽象方法
-  - 抽象类不能被实例化 (不能被new)
-  - 抽象类可以被普通类继承 (extends)
-  - 如果普通类继承抽象类 必须实现抽象类中所有的抽象方法
+    - 抽象类使用 abstract 关键字修饰的类
+    - 抽象类的作用是充当普通类的模板, 约定一些必要的属性和方法
+    - 抽象方法 是指 没有方法体的方法
+    - 抽象类中一般都有抽象方法 也可以没有抽象方法
+    - 普通类中 不能有抽象方法
+    - 抽象类不能被实例化 (不能被new)
+    - 抽象类可以被普通类继承 (extends)
+    - 如果普通类继承抽象类 必须实现抽象类中所有的抽象方法
 - 04.接口
-  - 接口在Dart 中就是一个类 只是用法不同
-  - 与Java 不同, Java 中的接口需要用 interface 关键字声明;  Dart 中不需要
-  - 接口可是是任意类 但一般使用抽象类
-  - 一个类可以 实现(implements) 多个接口, 多个接口用逗号分割
-  - 使用： class MyClass implements Interface1, Interface2 {...}
-  - 接口可是看作看成一个一个的小零件。 类实现接口就相当于组装零件
-  - 普通类实现了接口 必须重写接口中所有的属性和方法
+    - 接口在Dart 中就是一个类 只是用法不同
+    - 与Java 不同, Java 中的接口需要用 interface 关键字声明; Dart 中不需要
+    - 接口可是是任意类 但一般使用抽象类
+    - 一个类可以 实现(implements) 多个接口, 多个接口用逗号分割
+    - 使用： class MyClass implements Interface1, Interface2 {...}
+    - 接口可是看作看成一个一个的小零件。 类实现接口就相当于组装零件
+    - 普通类实现了接口 必须重写接口中所有的属性和方法
 - 05.混入
-  - 混入(Mixin) 是一段公共代码。 混入有两种声明方式：
-    - 将类当作混入 class MixinA {...}
-      - 作为 Mixin 的类只能继承自 Object, 不能继承其他类
-      - 作为 Mixin 的类不能有构造函数
-    - 使用 mixin 关键字声明 mixin MixinB {...}
-  - 混入 (Mixin) 可以提高代码复用的效率, 普通类可以通过 with 来使用混入
-    - class MyClass with MixinA, MixinB {...}
-  - 使用多个混入时, 后引入的混入会覆盖之前引入混入中的重复内容
-    - MixinA 和 MixinB 中都有hello()方法, MyClass 会使用 MixinB中的 hello 方法
+    - 混入(Mixin) 是一段公共代码。 混入有两种声明方式：
+        - 将类当作混入 class MixinA {...}
+            - 作为 Mixin 的类只能继承自 Object, 不能继承其他类
+            - 作为 Mixin 的类不能有构造函数
+        - 使用 mixin 关键字声明 mixin MixinB {...}
+    - 混入 (Mixin) 可以提高代码复用的效率, 普通类可以通过 with 来使用混入
+        - class MyClass with MixinA, MixinB {...}
+    - 使用多个混入时, 后引入的混入会覆盖之前引入混入中的重复内容
+        - MixinA 和 MixinB 中都有hello()方法, MyClass 会使用 MixinB中的 hello 方法
 - 06.泛型
-  - 泛型是在函数、类、接口中指定宽泛数据类型的语法
-    - 泛型函数
-    - 泛型类
-    - 泛型接口
-  - 通常, 在尖括号中, 使用一个字母来代表类型, 例如 E, T, S, K, 和 V等
-  - 返回类型 函数名 <输入类型>(参数类型 参数) {
-  -   函数体
-  - }
-  - 作用： 使用泛型可以减少重复的代码
+    - 泛型是在函数、类、接口中指定宽泛数据类型的语法
+        - 泛型函数
+        - 泛型类
+        - 泛型接口
+    - 通常, 在尖括号中, 使用一个字母来代表类型, 例如 E, T, S, K, 和 V等
+    - 返回类型 函数名 <输入类型>(参数类型 参数) {
+    - 函数体
+    - }
+    - 作用： 使用泛型可以减少重复的代码
 - 07.枚举
-  - 数量固定的常量值, 通过enum关键字声明
-    - enum Color {red, green, blue}
-  - 枚举的values常量, 可以获取所有枚举值列表
-    - List<Color> colors = Color.values;
-  - 可以通过 index 获取值的索引
-    - assert(Color.green.index == 1);
+    - 数量固定的常量值, 通过enum关键字声明
+        - enum Color {red, green, blue}
+    - 枚举的values常量, 可以获取所有枚举值列表
+        - List<Color> colors = Color.values;
+    - 可以通过 index 获取值的索引
+        - assert(Color.green.index == 1);
 
 ### 12. 库与生态
+
 - 简介
-  - Dart 中的库就是包含特定功能的模块。
-    - 可能包含单个文件, 也可能包含多个多个文件。
-  - 按照库的作者划分, 库可以分为三类
-    - 自定库 工程师自己写的
-    - 系统库 Dart自带的
-    - 第三方库 Dart生态的
-  - Dart 生态
-    - https://pub.dev/
-    - pub 命令
+    - Dart 中的库就是包含特定功能的模块。
+        - 可能包含单个文件, 也可能包含多个多个文件。
+    - 按照库的作者划分, 库可以分为三类
+        - 自定库 工程师自己写的
+        - 系统库 Dart自带的
+        - 第三方库 Dart生态的
+    - Dart 生态
+        - https://pub.dev/
+        - pub 命令
 - 系统库 也叫核心库 是 Dart 提供的常用内置库
-  - 不需要单独引入就可以使用
-  - 系统库的引入
-  - import 'dart:库名称'
+    - 不需要单独引入就可以使用
+    - 系统库的引入
+    - import 'dart:库名称'
 - 自定义库
-  - 通过 library 来声明库
-    - 每个 Dart 文件默认都是一个库, 只是没有通过 library 关键字来显示的声明
-    - Dart 使用 _ (下划线) 开头的标识符, 表示库内访问可见 (私有)
-  - 通过 import 来引入库
-  - 通过 part 和 part of 来组装库
+    - 通过 library 来声明库
+        - 每个 Dart 文件默认都是一个库, 只是没有通过 library 关键字来显示的声明
+        - Dart 使用 _ (下划线) 开头的标识符, 表示库内访问可见 (私有)
+    - 通过 import 来引入库
+    - 通过 part 和 part of 来组装库
 - 第三方库
-  - 来源
-    - https://pub.dev
-    - https://pub.flutter-io.cn/packages
-    - https://pub.dartlang.org/flutter
-  - 使用：
-    - 在项目目录下创建pubspec.yaml
-    - 在pubspec.yaml 中声明第三库 (依赖)
-    - 命令行中进入pubspec.yaml 所在目录 执行 pub get / pub upgrade / pub outdated
-    - 在项目中引入第三方库
-    - import 'package:xx/oo.dart'
-  - 每个第三方库 必须包含一个pubspec.yaml
-  - pubspec.yaml
-    - 详情： https://dart.cn/toos/pub/pubspec
+    - 来源
+        - https://pub.dev
+        - https://pub.flutter-io.cn/packages
+        - https://pub.dartlang.org/flutter
+    - 使用：
+        - 在项目目录下创建pubspec.yaml
+        - 在pubspec.yaml 中声明第三库 (依赖)
+        - 命令行中进入pubspec.yaml 所在目录 执行 pub get / pub upgrade / pub outdated
+        - 在项目中引入第三方库
+        - import 'package:xx/oo.dart'
+    - 每个第三方库 必须包含一个pubspec.yaml
+    - pubspec.yaml
+        - 详情： https://dart.cn/toos/pub/pubspec
 - 引入部分库
-  - 引入部分库的关键字 show hide 多个内容用逗号分割
-    - 包含引入 (show)
-    - 排除引入 (hide)
+    - 引入部分库的关键字 show hide 多个内容用逗号分割
+        - 包含引入 (show)
+        - 排除引入 (hide)
 - 引入内容冲突解决
-  - 当库名冲突时, 可以通过as关键字 给库名指定一个前缀。
+    - 当库名冲突时, 可以通过as关键字 给库名指定一个前缀。
 - 延迟加载 懒加载
-  - 使用 deferred as 关键字标识需要延迟加载的库
+    - 使用 deferred as 关键字标识需要延迟加载的库
 
 - 通过 part, part of 来组装复杂库的关键字
 - 使用： 组装库的时候拆分成多个文件
-
 
 ## Flutter 基础知识
 
@@ -426,20 +426,25 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 > 入口文件 lib 入口方法 runApp
 
 #### Material Design (Google 推出的前端UI解决方案)
+
 - 官网：
-  - https://www.material.io/
-  - https://www.material-io.cn/
+    - https://www.material.io/
+    - https://www.material-io.cn/
 
 #### Flutter 中一切内容都是组建
+
 - 组建分类
-  - 有状态组建 (StateFulWidget)
-  - 无状态组建 (StateLessWidget)
+    - 有状态组建 (StateFulWidget)
+    - 无状态组建 (StateLessWidget)
 
 #### MaterialApp
+
 - title (任务管理器中的标题)
 - home 主内容
 - debugShowCheckedModeBanner 是否显示屏幕左上角的调试标记
+
 #### Scaffold 骨架 脚手架
+
 - appBar (应用头部)
 - body(应用主题)
 - floatingActionButton (浮动按钮)
@@ -448,82 +453,129 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 - bottomNavigationBar (底部导航菜单)
 
 ### 初始化项目
-### 基础组建
- - 常用组建
-	 - 01。Text组建
-		 - TextDirection
-		 - TextStyle
-			 - Colors 指定文本的颜色
-			 - FontWeight
-			 - FontStyle
-		 - TextAlign
-		 - TextOverflow
-		 - maxLines
-	 - 02。RichText 与 TextSpan 给一段文本声明不同的样式
 
-     - 03。下载并导入字体
-       - https://fonts.google.com/
-       - 解压压缩包 把字体复制到项目中
-       - 在pubspec.yaml 中声明字体
-       - 使用
-         - 在整个项目中使用默认字体
-         - 在某个组建中设置自定义字体
-     - 04。Icon
-       - Flutter 中的图标库
-       - Icon(Icons.图标名称)
-       - 在线预览的地址
-       - https://material.io/resources/icons
-     - 05.Color 自定义颜色
-       - Flutter中通过ARGB来声明颜色
-       - const Color(0xFF42A5F5) 16进制的ARGB = FF(透明度) + 六位十六进制颜色
-       - const Color.formARGB(0xFF, 0x42, 0xA5, 0xF5)
-       - const Color.formARGB(255, 66, 165, 245)
-       - const Color.formRGBO(66, 165, 245, 1.0)
-       - Colors.blue
-     - 06.Container
-       - child 声明子组建
-       - padding(margin)
-         - EdgeInsets (all() fromLTRB() only())
-       - decoration
-         - BoxDecoration (边框 圆角 渐变 阴影 背景色 背景图片)
-       - alignment
-         - Alignment
-       - transform
-         - Matrix4 (平移-translate 旋转-rotate 缩放-scale 斜切-skew )
-     - 07.线性布局
-       - Column
-         - Column 中的主轴方向是垂直方向
-         - mainAxisAlignment 主轴对其方向
-         - crossAxisAlignment 交叉轴对其方向
-         - children 内容
-       - Row
-         - 主轴方向是 水平方向 其他和 Column 一致
-     - 08.Flex
-       - 指定主轴方向 direction
-       - maxAxisDirection 声明主轴对其方式
-       - textDirection 声明水平方向的排列顺序
-       - crossAxisDirection 声明交叉轴方向的对其方式
-       - verticalDirection 声明垂直方向的排列顺序 
-       - children
-     - 09.Expanded
-       - 可伸缩组建
-       - flex 声明弹性布局所占的比例
-       - child 自组建
-     - 10.流式布局
-       - Wrap 流式布局 解决内容溢出问题
-       - spacing 水平方向子组建的间距
-       - alignment 主轴方向的对齐方式
-       - runSpacing 纵轴方向的对齐间距
-       - runAlignment 纵轴方向的对齐方式
-       - Chip 标签
-       - CircleAvatar 圆形头像
- - 布局组建
- - 按钮组建
- - 图片组建
- - 列表组建
- - 其他组建
+### 基础组建
+
+- 常用组建
+    - 01。Text组建
+        - TextDirection
+        - TextStyle
+            - Colors 指定文本的颜色
+            - FontWeight
+            - FontStyle
+        - TextAlign
+        - TextOverflow
+        - maxLines
+    - 02。RichText 与 TextSpan 给一段文本声明不同的样式
+
+    - 03。下载并导入字体
+        - https://fonts.google.com/
+        - 解压压缩包 把字体复制到项目中
+        - 在pubspec.yaml 中声明字体
+        - 使用
+            - 在整个项目中使用默认字体
+            - 在某个组建中设置自定义字体
+    - 04。Icon
+        - Flutter 中的图标库
+        - Icon(Icons.图标名称)
+        - 在线预览的地址
+        - https://material.io/resources/icons
+    - 05.Color 自定义颜色
+        - Flutter中通过ARGB来声明颜色
+        - const Color(0xFF42A5F5) 16进制的ARGB = FF(透明度) + 六位十六进制颜色
+        - const Color.formARGB(0xFF, 0x42, 0xA5, 0xF5)
+        - const Color.formARGB(255, 66, 165, 245)
+        - const Color.formRGBO(66, 165, 245, 1.0)
+        - Colors.blue
+    - 06.Container
+        - child 声明子组建
+        - padding(margin)
+            - EdgeInsets (all() fromLTRB() only())
+        - decoration
+            - BoxDecoration (边框 圆角 渐变 阴影 背景色 背景图片)
+        - alignment
+            - Alignment
+        - transform
+            - Matrix4 (平移-translate 旋转-rotate 缩放-scale 斜切-skew )
+    - 07.线性布局
+        - Column
+            - Column 中的主轴方向是垂直方向
+            - mainAxisAlignment 主轴对其方向
+            - crossAxisAlignment 交叉轴对其方向
+            - children 内容
+        - Row
+            - 主轴方向是 水平方向 其他和 Column 一致
+    - 08.Flex
+        - 指定主轴方向 direction
+        - maxAxisDirection 声明主轴对其方式
+        - textDirection 声明水平方向的排列顺序
+        - crossAxisDirection 声明交叉轴方向的对其方式
+        - verticalDirection 声明垂直方向的排列顺序
+        - children
+    - 09.Expanded
+        - 可伸缩组建
+        - flex 声明弹性布局所占的比例
+        - child 自组建
+    - 10.流式布局
+        - Wrap 流式布局 解决内容溢出问题
+        - spacing 水平方向子组建的间距
+        - alignment 主轴方向的对齐方式
+        - runSpacing 纵轴方向的对齐间距
+        - runAlignment 纵轴方向的对齐方式
+        - Chip 标签
+        - CircleAvatar 圆形头像
+- 布局组建
+- 按钮组建
+    - 1.22 以前
+    - FlatButton
+    - RaisedButton
+    - OutlienButton
+    - 1.22 以后
+    - TextButton 文本按钮 代替 FlatButton
+    - ElevatedButton 代替 RaisedButton
+    - OutlinedButton 代替 OutlineButton
+    - 旧按钮 VS 新按钮
+    - 会什么会有新按钮
+    - 以前按钮外观调整成统一的外观比较麻烦 通常要自定义大量的样式
+    - 新按钮将外观集合为一个ButtonStyle 非常方便统一控制
+    - 按钮主题
+    -
+    - 图标按钮
+    - IconButton
+    - TextButton.icon() 命名构造函数
+    - ElevatedButton.icon()
+    - OutlinedButton.icon()
+    - ButtonBar 按钮组
+    - floatingActionButton 浮动按钮
+    - BackButton
+    - CloseButton
+
+```
+  TextButtonTheme(
+    data: TextButtonThemeData(
+      style: ButtonStyle(
+        textStyle: MaterialStateProperty.all(
+          TextStyle(fontSize: 48),
+        ),
+      ),
+    ),
+    child: TextButton(
+      onPressed: () {},
+      child: const Text('Text Button'),
+    ),
+  ),
+```
+
+- 图片组建
+- 列表组建
+- 其他组建
+
 ### 第三方组建
+
 ### 状态管理
+
 ### 路由与导航
+
 ### 表单
+
 ### 其他

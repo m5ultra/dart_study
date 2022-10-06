@@ -50,7 +50,9 @@ class WrapDemo extends StatelessWidget {
           ),
         )
         .toList();
+
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Wrap(
           spacing: 10.0,
