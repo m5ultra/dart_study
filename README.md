@@ -608,7 +608,21 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - Getx https://pub.dev/packages/get State manager, Navigation manager, Dependencies manager
     - Mobx
 ### 状态管理
+  1. stateFulWidget 有状态组建
+    -  StateLessWidget
+    -  StateFulWidget
+  2. dataTable 表格
+  3. inheritedWidget 类似React context的 一个东西
+  4. 组建的声明周期
+  5. provider
+  6. 按状态作用域划分
+     1. 组建内的状态 StateFulWidget
+     2. 跨组建的状态 inheritedWidget provider
+     3. 全局状态 (Redux Mobx...)
 
+   7. 状态组建的组成
+      1. 继承StateFulWidget 组建本身不可以变 @immutable
+      2. State 将变化的状态放到State中维护
 ### 路由与导航
 
 ### 表单

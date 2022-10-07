@@ -15,7 +15,9 @@ import 'package:flutter/material.dart';
 // import '05_list/04.gridview_named_constructor.dart';
 // import '06_others/01_cupertino.dart';
 // import '06_others/02.safe_area.dart';
-import '07.third_party/01_dio.dart';
+// import '07.third_party/01_dio.dart';
+// import '08_state/01_StateFullWidget.dart';
+import '08_state/02_dataTable.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
       home: const Home(),
       theme: ThemeData(
         fontFamily: 'FiraCode',
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
     );
   }
