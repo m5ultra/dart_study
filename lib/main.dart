@@ -17,7 +17,8 @@ import 'package:flutter/material.dart';
 // import '06_others/02.safe_area.dart';
 // import '07.third_party/01_dio.dart';
 // import '08_state/01_StateFullWidget.dart';
-import '08_state/02_dataTable.dart';
+// import '08_state/02_dataTable.dart';
+import '08_state/03_inherited.dart';
 
 void main() {
   runApp(const MyApp());
