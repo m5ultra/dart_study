@@ -568,7 +568,37 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 
 - 图片组建
 - 列表组建
+  - SingleChildScrollView
+  - ListView
+    - ListView 默认构造函数 加载所有的Widgets 适合Widget较少的场景
+    - ListTile (leading title subTitle trailing selected)
+    - ListView.builder
+      - 可以按需加载Widget 性能比默认构造函数高 适合Widget较多场景
+    - ListView.separated
+      - 比 ListView.builder 多了分割器
+    - 通过ScrollConstructor 实现上来加载更多 和 下拉刷新  https://www.jianshu.com/p/f3833677e4ee
+  - GridView 网格布局
+    - GridView 和 ListView 继承同一个类
+    - children
+    - scrollDirection
+    - GridDelegate
+      - SliverGridDelegateWithFixedCrossAxisCount (指定列数 - 子组建宽度自适应)
+      - SliverGridDelegateWithMaxCrossAxiosExtent (指定子组建宽的 - 列数自适应)
+    - GridView.count 列数固定
+    - GridView.extent 子组建宽度固定
+    - GridView.builder
+    - mainAxisSpacing
+    - crossAxisSpacing
+    - childWidth / childHeight = childAspectRadio
+    - crossAxisCount(int 2)
+    - 首先介绍 ScrollPhysics ，在 Flutter 官方的介绍中， ScrollPhysics 的作用是 确定可滚动控件的物理特性， 常⻅ 的有以下四大金刚:
+    - BouncingScrollPhysics :允许滚动超出边界，但之后内容会反弹回来。
+    - ClampingScrollPhysics : 防止滚动超出边界，夹住 。
+    - AlwaysScrollableScrollPhysics :始终响应用户的滚动。
+    - NeverScrollableScrollPhysics :不响应用户的滚动。
 - 其他组建
+  - Cupertino 提供 提供 IOS 风格的组建
+    - https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html
 
 ### 第三方组建
 

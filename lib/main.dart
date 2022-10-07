@@ -8,8 +8,12 @@ import 'package:flutter/material.dart';
 // import '02_layout/05_stack.dart';
 // import '02_layout/06_card.dart';
 // import '03_btns/01_buttons.dart';
-import '04_imgs/01_images.dart';
-
+// import '04_imgs/01_images.dart';
+// import '05_list/01.single_child_scroll_view.dart';
+// import '05_list/02.listview.dart';
+// import '05_list/03.gridview.dart';
+// import '05_list/04.gridview_named_constructor.dart';
+import '06_others/01_cupertino.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
       home: const Home(),
       theme: ThemeData(
         fontFamily: 'FiraCode',
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.blue,
       ),
     );
   }
