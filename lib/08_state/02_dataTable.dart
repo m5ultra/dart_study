@@ -53,6 +53,12 @@ class _DataTableDemoState extends State<DataTableDemo> {
     for (var v in users) {
       newList.add(
         DataRow(
+          selected: v.selected as bool,
+          onSelectChanged: (isSel) {
+            setState(() {
+              v.selected = isSel;
+            });
+          },
           cells: [
             DataCell(Text(v.name)),
             DataCell(Text(v.age.toString())),
@@ -65,14 +71,32 @@ class _DataTableDemoState extends State<DataTableDemo> {
     return newList;
   }
 
+  bool sortAscendingBool = true;
+
   @override
   Widget build(BuildContext context) {
     return DataTable(
-      columns: const [
-        DataColumn(label: Text('姓名')),
-        DataColumn(label: Text('年龄')),
-        DataColumn(label: Text('性别')),
-        DataColumn(label: Text('简介')),
+      sortAscending: sortAscendingBool,
+      sortColumnIndex: 1,
+      columns: [
+        const DataColumn(label: Text('姓名')),
+        DataColumn(
+            label: const Text('年龄'),
+            numeric: true,
+            onSort: (index, asscending) {
+              setState(() {
+                sortAscendingBool = asscending;
+                if (asscending) {
+// 升序:数据越大，越往后
+                  users.sort((a, b) => a.age.compareTo(b.age));
+                } else {
+// 降序:数据越小，越往后
+                  users.sort((a, b) => b.age.compareTo(a.age));
+                }
+              });
+            }),
+        const DataColumn(label: Text('性别')),
+        const DataColumn(label: Text('简介')),
       ],
       rows: _getList(),
 
