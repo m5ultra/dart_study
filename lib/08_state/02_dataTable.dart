@@ -21,7 +21,50 @@ class DataTableDemo extends StatefulWidget {
   State<DataTableDemo> createState() => _DataTableDemoState();
 }
 
+class User {
+  String name;
+  int age;
+  bool? selected;
+
+  User(this.name, this.age, {this.selected = false});
+}
+
 class _DataTableDemoState extends State<DataTableDemo> {
+  List<User> users = <User>[
+    User('张三丰', 208),
+    User('张翠山', 30),
+    User(
+      '张无忌',
+      60,
+      selected: true,
+    ),
+    User(
+      '周芷若',
+      35,
+    ),
+    User(
+      '赵敏',
+      35,
+    ),
+  ];
+
+  _getList() {
+    List<DataRow> newList = [];
+    for (var v in users) {
+      newList.add(
+        DataRow(
+          cells: [
+            DataCell(Text(v.name)),
+            DataCell(Text(v.age.toString())),
+            const DataCell(Text('男')),
+            const DataCell(Text('---')),
+          ],
+        ),
+      );
+    }
+    return newList;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DataTable(
@@ -31,22 +74,24 @@ class _DataTableDemoState extends State<DataTableDemo> {
         DataColumn(label: Text('性别')),
         DataColumn(label: Text('简介')),
       ],
-      rows: const [
-        DataRow(cells: [
-          DataCell(
-            Text('张三'),
-          ),
-          DataCell(
-            Text('18'),
-          ),
-          DataCell(
-            Text('男'),
-          ),
-          DataCell(
-            Text('一个有故事的人...'),
-          ),
-        ])
-      ],
+      rows: _getList(),
+
+      // const [
+      //   DataRow(cells: [
+      //     DataCell(
+      //       Text('张三'),
+      //     ),
+      //     DataCell(
+      //       Text('18'),
+      //     ),
+      //     DataCell(
+      //       Text('男'),
+      //     ),
+      //     DataCell(
+      //       Text('一个有故事的人...'),
+      //     ),
+      //   ])
+      // ],
     );
   }
 }
