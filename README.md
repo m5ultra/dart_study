@@ -601,7 +601,12 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html
 
 ### 第三方组建
-
+#### 常用第三方组建
+    - dio 发送网络请求 单例模式
+    - flutter_swiper 轮播图
+    - shared_preferences 数据持久保存
+    - Getx https://pub.dev/packages/get State manager, Navigation manager, Dependencies manager
+    - Mobx
 ### 状态管理
 
 ### 路由与导航
