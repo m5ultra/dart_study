@@ -143,13 +143,12 @@ const reg = RegExp(s);
 ```
 const name = '0';
 
-if(
+if (
 name == 0) {
 // ...
 }
 
-if
-(
+if (
 name == null) {
 // ...
 }
@@ -568,80 +567,133 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 
 - 图片组建
 - 列表组建
-  - SingleChildScrollView
-  - ListView
-    - ListView 默认构造函数 加载所有的Widgets 适合Widget较少的场景
-    - ListTile (leading title subTitle trailing selected)
-    - ListView.builder
-      - 可以按需加载Widget 性能比默认构造函数高 适合Widget较多场景
-    - ListView.separated
-      - 比 ListView.builder 多了分割器
-    - 通过ScrollConstructor 实现上来加载更多 和 下拉刷新  https://www.jianshu.com/p/f3833677e4ee
-  - GridView 网格布局
-    - GridView 和 ListView 继承同一个类
-    - children
-    - scrollDirection
-    - GridDelegate
-      - SliverGridDelegateWithFixedCrossAxisCount (指定列数 - 子组建宽度自适应)
-      - SliverGridDelegateWithMaxCrossAxiosExtent (指定子组建宽的 - 列数自适应)
-    - GridView.count 列数固定
-    - GridView.extent 子组建宽度固定
-    - GridView.builder
-    - mainAxisSpacing
-    - crossAxisSpacing
-    - childWidth / childHeight = childAspectRadio
-    - crossAxisCount(int 2)
-    - 首先介绍 ScrollPhysics ，在 Flutter 官方的介绍中， ScrollPhysics 的作用是 确定可滚动控件的物理特性， 常⻅ 的有以下四大金刚:
-    - BouncingScrollPhysics :允许滚动超出边界，但之后内容会反弹回来。
-    - ClampingScrollPhysics : 防止滚动超出边界，夹住 。
-    - AlwaysScrollableScrollPhysics :始终响应用户的滚动。
-    - NeverScrollableScrollPhysics :不响应用户的滚动。
+    - SingleChildScrollView
+    - ListView
+        - ListView 默认构造函数 加载所有的Widgets 适合Widget较少的场景
+        - ListTile (leading title subTitle trailing selected)
+        - ListView.builder
+            - 可以按需加载Widget 性能比默认构造函数高 适合Widget较多场景
+        - ListView.separated
+            - 比 ListView.builder 多了分割器
+        - 通过ScrollConstructor 实现上来加载更多 和 下拉刷新  https://www.jianshu.com/p/f3833677e4ee
+    - GridView 网格布局
+        - GridView 和 ListView 继承同一个类
+        - children
+        - scrollDirection
+        - GridDelegate
+            - SliverGridDelegateWithFixedCrossAxisCount (指定列数 - 子组建宽度自适应)
+            - SliverGridDelegateWithMaxCrossAxiosExtent (指定子组建宽的 - 列数自适应)
+        - GridView.count 列数固定
+        - GridView.extent 子组建宽度固定
+        - GridView.builder
+        - mainAxisSpacing
+        - crossAxisSpacing
+        - childWidth / childHeight = childAspectRadio
+        - crossAxisCount(int 2)
+        - 首先介绍 ScrollPhysics ，在 Flutter 官方的介绍中， ScrollPhysics 的作用是 确定可滚动控件的物理特性， 常⻅
+          的有以下四大金刚:
+        - BouncingScrollPhysics :允许滚动超出边界，但之后内容会反弹回来。
+        - ClampingScrollPhysics : 防止滚动超出边界，夹住 。
+        - AlwaysScrollableScrollPhysics :始终响应用户的滚动。
+        - NeverScrollableScrollPhysics :不响应用户的滚动。
 - 其他组建
-  - Cupertino 提供 提供 IOS 风格的组建
-    - https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html
+    - Cupertino 提供 提供 IOS 风格的组建
+        - https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html
 
 ### 第三方组建
+
 #### 常用第三方组建
+
     - dio 发送网络请求 单例模式
     - flutter_swiper 轮播图
     - shared_preferences 数据持久保存
     - Getx https://pub.dev/packages/get State manager, Navigation manager, Dependencies manager
     - Mobx
+
 ### 状态管理
-  1. stateFulWidget 有状态组建
-    -  StateLessWidget
-    -  StateFulWidget
-  2. dataTable 表格
-  3. inheritedWidget 类似React context的 一个东西
-  4. 组建的生命周期
-     - initState() 组建对象插入到元素树时
-     - didChangeDependencies() 当前组建状态的依赖改变时
-     - build 组建渲染时
-     - setState() 组建对象的内部状态变更时
-     - didUpdateWidget() 组建配置更新时 比如主题更新的时候 切换多语言的时候 
-     - deactivate()  失去活性  组建状态暂时在元素树中暂时移除 切换到新页面 还有可能会返回
-     - dispose() 组建状态在元素树中永久被移除 
-  5. provider
-     - Provider 是对 inheritedWidget 的封装
-     - 简化资源的处理与分配
-     - 懒加载
-     - Provider 的实现原理
-     - 创建数据模型 (T extends ChangeNotifier)
-     - 创建Provider 注册数据模型
+
+1. stateFulWidget 有状态组建
+   - StateLessWidget
+   - StateFulWidget
+2. dataTable 表格
+3. inheritedWidget 类似React context的 一个东西
+4. 组建的生命周期
+    - initState() 组建对象插入到元素树时
+    - didChangeDependencies() 当前组建状态的依赖改变时
+    - build 组建渲染时
+    - setState() 组建对象的内部状态变更时
+    - didUpdateWidget() 组建配置更新时 比如主题更新的时候 切换多语言的时候
+    - deactivate()  失去活性 组建状态暂时在元素树中暂时移除 切换到新页面 还有可能会返回
+    - dispose() 组建状态在元素树中永久被移除
+5. provider
+    - Provider 是对 inheritedWidget 的封装
+    - 简化资源的处理与分配
+    - 懒加载
+    - Provider 的实现原理
+    - 创建数据模型 (T extends ChangeNotifier)
+    - 创建Provider 注册数据模型
         - Provider() 不会要求随着变动而变动
         - ChangeNotifierProvider()
-     - 获取数据模型并更新UI
-       - 通过上下文 (BuildContext)
-       - 通过静态方法(Provider.of<T>(content) T就是第一步创建的数据模型
-  6. 按状态作用域划分
-     1. 组建内的状态 StateFulWidget
-     2. 跨组建的状态 inheritedWidget provider
-     3. 全局状态 (Redux Mobx...)
+    - 获取数据模型并更新UI
+        - 通过上下文 (BuildContext)
+        - 通过静态方法(Provider.of<T>(content) T就是第一步创建的数据模型
+    - https://pub.dev/packages/provider Provider 官方地址
+6. 按状态作用域划分
+    1. 组建内的状态 StateFulWidget
+    2. 跨组建的状态 inheritedWidget provider
+    3. 全局状态 (Redux Mobx...)
 
-   7. 状态组建的组成
-      1. 继承StateFulWidget 组建本身不可以变 @immutable
-      2. State 将变化的状态放到State中维护
+7. 状态组建的组成
+    1. 继承StateFulWidget 组建本身不可以变 @immutable
+    2. State 将变化的状态放到State中维护
+
 ### 路由与导航
+
+- 路由简介
+    - Route 一个路由是一个屏幕或页面的抽象
+    - Navigator 管理路由的组建 Navigator可以通过路由的入栈或出栈来实现页面之间的跳转
+    - 常用属性
+    - initialRoute 默认路由 即默认页面
+    - onGenerateRoute 动态路由 根据规则匹配动态路由
+    - onUnknownRoute 404页面
+    - routes 路由的集合 静态路由一般在routes中声明好的
+    - 匿名路由 跳转
+      - push
+      - pop: () => Navigator.pop(context)
+
+   ```
+     Navigator
+             .push(
+                 context, MaterialPageRoute(builder: (context) => 组建名称())
+    )  
+   ```
+   
+- 匿名路由
+- 命名路由
+  - 声明路由 
+  - routes 路由表 (Map 类型)
+  - initialRoute (初始路由)
+  - onUnknownRoute (404 未知路由)
+  - 跳转到命名路由
+    - Navigator.pushNamed(context, "路由名称")
+
+```
+ MaterialApp(
+    // 其他配置
+    routes: {
+        'first': (context) => FirstPage(),
+        'second': (context) => SecondPage(),
+    },
+    initialRoute: 'first',
+    onUnknownRoute: (RouteSettings settings) => MaterialPageRoute(builder: (context) => const UnknownPage())
+ )
+```
+
+- 动态路由
+- 路由传参数
+- Drawer 导航
+- BottomNavigationBar 导航
+- Tab 导航
 
 ### 表单
 

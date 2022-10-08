@@ -20,7 +20,9 @@ import 'package:flutter/material.dart';
 // import '08_state/02_dataTable.dart';
 // import '08_state/03_inherited.dart';
 // import '08_state/04_lifeCycle.dart';
-import '08_state/05_Provider.dart';
+// import '08_state/05_Provider.dart';
+// import '09_routes/01_anonymous.dart';
+import '09_routes/02_namedRoute.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +36,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      // home: const Home(),
+      routes: {
+        'Home': (context) => const Home(),
+        'Detail': (context) => const Detail(),
+      },
+      initialRoute: 'Home',
+      onUnknownRoute: (RouteSettings settings) => MaterialPageRoute(builder: (context) => const Unknown() ),
       theme: ThemeData(
         fontFamily: 'FiraCode',
         primarySwatch: Colors.purple,
