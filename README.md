@@ -622,6 +622,17 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
      - deactivate()  失去活性  组建状态暂时在元素树中暂时移除 切换到新页面 还有可能会返回
      - dispose() 组建状态在元素树中永久被移除 
   5. provider
+     - Provider 是对 inheritedWidget 的封装
+     - 简化资源的处理与分配
+     - 懒加载
+     - Provider 的实现原理
+     - 创建数据模型 (T extends ChangeNotifier)
+     - 创建Provider 注册数据模型
+        - Provider() 不会要求随着变动而变动
+        - ChangeNotifierProvider()
+     - 获取数据模型并更新UI
+       - 通过上下文 (BuildContext)
+       - 通过静态方法(Provider.of<T>(content) T就是第一步创建的数据模型
   6. 按状态作用域划分
      1. 组建内的状态 StateFulWidget
      2. 跨组建的状态 inheritedWidget provider

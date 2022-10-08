@@ -19,7 +19,8 @@ import 'package:flutter/material.dart';
 // import '08_state/01_StateFullWidget.dart';
 // import '08_state/02_dataTable.dart';
 // import '08_state/03_inherited.dart';
-import '08_state/04_lifeCycle.dart';
+// import '08_state/04_lifeCycle.dart';
+import '08_state/05_Provider.dart';
 
 void main() {
   runApp(const MyApp());
