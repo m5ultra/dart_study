@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Detail extends StatelessWidget {
-  const Detail({Key? key, required id}) : super(key: key);
+  const Detail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -143,5 +143,53 @@ class _UnknownPageState extends State<UnknownPage> {
       ),
     );
     ;
+  }
+}
+
+class Detail2 extends StatelessWidget {
+  final String id; // 可以通过Provider 传递给子组建
+  const Detail2({Key? key, required this.id}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print(id);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('商品详情页面'),
+        leading: const Icon(Icons.menu),
+        actions: const [Icon(Icons.settings)],
+        elevation: 0,
+      ),
+      body: const Detail2Page(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        backgroundColor: Colors.green,
+        elevation: 0.0,
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+
+class Detail2Page extends StatefulWidget {
+  const Detail2Page({Key? key,}) : super(key: key);
+
+  @override
+  State<Detail2Page> createState() => _Detail2PageState();
+}
+
+class _Detail2PageState extends State<Detail2Page> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          Text('商品🆔 是'),
+          ElevatedButton(onPressed: () => Navigator.pop(context), child: const Text('Back'))
+        ],
+      ),
+    );
   }
 }

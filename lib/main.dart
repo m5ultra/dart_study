@@ -49,20 +49,19 @@ class MyApp extends StatelessWidget {
       // onUnknownRoute: (RouteSettings settings) => MaterialPageRoute(builder: (context) => const Unknown()),
       // 动态路由开始 声明动态路由 命名路由就失效了
       onGenerateRoute: (RouteSettings settings) {
-        print('路由名称 + ${settings.name}');
         if(settings.name == '/') {
           return MaterialPageRoute(builder: (context) => const Home());
         }
 
         if(settings.name == '/detail') {
-          return MaterialPageRoute(builder: (context) => const Detail(id: null,));
+          return MaterialPageRoute(builder: (context) => const Detail());
         }
 
         // 例如详情页面 /details/:id
         Uri uri = Uri.parse(settings.name as String);
         if(uri.pathSegments.length == 2 && uri.pathSegments.first == 'detail') {
           String id = uri.pathSegments[1];
-          return MaterialPageRoute(builder: (context) => Detail(id: id));
+          return MaterialPageRoute(builder: (context) => Detail2(id: id));
         }
         // 所有的都没有匹配 跳转到404 页面
         return MaterialPageRoute(builder: (context) => const Unknown());
