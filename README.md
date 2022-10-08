@@ -613,7 +613,14 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     -  StateFulWidget
   2. dataTable 表格
   3. inheritedWidget 类似React context的 一个东西
-  4. 组建的声明周期
+  4. 组建的生命周期
+     - initState() 组建对象插入到元素树时
+     - didChangeDependencies() 当前组建状态的依赖改变时
+     - build 组建渲染时
+     - setState() 组建对象的内部状态变更时
+     - didUpdateWidget() 组建配置更新时 比如主题更新的时候 切换多语言的时候 
+     - deactivate()  失去活性  组建状态暂时在元素树中暂时移除 切换到新页面 还有可能会返回
+     - dispose() 组建状态在元素树中永久被移除 
   5. provider
   6. 按状态作用域划分
      1. 组建内的状态 StateFulWidget
