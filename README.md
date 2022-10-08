@@ -690,6 +690,28 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 ```
 
 - 动态路由
+  - onGenerateRoute
+    - 动态路由是指, 通过onGenerateRoute 属性指定路由
+
+```
+ MaterialApp(
+    // 动态路由
+    onGenerateRoute: (settings) {
+      if(settings.name == '/') {
+        return MaterialPageRoute(builder: (context) => Home())
+      }
+      // 例如详情页面 /details/:id
+      Uri uri = Uri.parse(settings.name)
+      if(uri.pathSegments.length == 2 && uri.pathSegments.first == 'details') {
+        String id = uri.pathSegments[1]
+        return MaterialPageRoute(builder: (context) => Detail(id: id))
+      }
+      // 所有的都没有匹配 跳转到404 页面
+      return MaterialPageRoute(builder: (context) => Unkown())
+    }
+ )
+```
+
 - 路由传参数
 - Drawer 导航
 - BottomNavigationBar 导航

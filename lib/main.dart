@@ -22,7 +22,8 @@ import 'package:flutter/material.dart';
 // import '08_state/04_lifeCycle.dart';
 // import '08_state/05_Provider.dart';
 // import '09_routes/01_anonymous.dart';
-import '09_routes/02_namedRoute.dart';
+// import '09_routes/02_namedRoute.dart';
+import '09_routes/03_onGenerate.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,13 +37,37 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      // home: const Home(),
-      routes: {
-        'Home': (context) => const Home(),
-        'Detail': (context) => const Detail(),
+      // home: const Home(), // 设置Home页面 初始路由生效
+      // 命名路由开始
+      // routes: {
+      //   'Home': (context) => const Home(),
+      //   'Detail': (context) => const Detail(),
+      // },
+      // 命名路由结束
+      // initialRoute: 'Home', // 命名路由初始页面
+      // 命名 路由 404 页面
+      // onUnknownRoute: (RouteSettings settings) => MaterialPageRoute(builder: (context) => const Unknown()),
+      // 动态路由开始 声明动态路由 命名路由就失效了
+      onGenerateRoute: (RouteSettings settings) {
+        print('路由名称 + ${settings.name}');
+        if(settings.name == '/') {
+          return MaterialPageRoute(builder: (context) => const Home());
+        }
+
+        if(settings.name == '/detail') {
+          return MaterialPageRoute(builder: (context) => const Detail(id: null,));
+        }
+
+        // 例如详情页面 /details/:id
+        Uri uri = Uri.parse(settings.name as String);
+        if(uri.pathSegments.length == 2 && uri.pathSegments.first == 'detail') {
+          String id = uri.pathSegments[1];
+          return MaterialPageRoute(builder: (context) => Detail(id: id));
+        }
+        // 所有的都没有匹配 跳转到404 页面
+        return MaterialPageRoute(builder: (context) => const Unknown());
       },
-      initialRoute: 'Home',
-      onUnknownRoute: (RouteSettings settings) => MaterialPageRoute(builder: (context) => const Unknown() ),
+      // 动态路由结束
       theme: ThemeData(
         fontFamily: 'FiraCode',
         primarySwatch: Colors.purple,
