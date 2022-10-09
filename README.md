@@ -613,8 +613,8 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 ### 状态管理
 
 1. stateFulWidget 有状态组建
-   - StateLessWidget
-   - StateFulWidget
+    - StateLessWidget
+    - StateFulWidget
 2. dataTable 表格
 3. inheritedWidget 类似React context的 一个东西
 4. 组建的生命周期
@@ -658,8 +658,8 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - onUnknownRoute 404页面
     - routes 路由的集合 静态路由一般在routes中声明好的
     - 匿名路由 跳转
-      - push
-      - pop: () => Navigator.pop(context)
+        - push
+        - pop: () => Navigator.pop(context)
 
    ```
      Navigator
@@ -667,15 +667,15 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
                  context, MaterialPageRoute(builder: (context) => 组建名称())
     )  
    ```
-   
+
 - 匿名路由
 - 命名路由
-  - 声明路由 
-  - routes 路由表 (Map 类型)
-  - initialRoute (初始路由)
-  - onUnknownRoute (404 未知路由)
-  - 跳转到命名路由
-    - Navigator.pushNamed(context, "路由名称")
+    - 声明路由
+    - routes 路由表 (Map 类型)
+    - initialRoute (初始路由)
+    - onUnknownRoute (404 未知路由)
+    - 跳转到命名路由
+        - Navigator.pushNamed(context, "路由名称")
 
 ```
  MaterialApp(
@@ -690,8 +690,8 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 ```
 
 - 动态路由
-  - onGenerateRoute
-    - 动态路由是指, 通过onGenerateRoute 属性指定路由
+    - onGenerateRoute
+        - 动态路由是指, 通过onGenerateRoute 属性指定路由
 
 ```
  MaterialApp(
@@ -713,6 +713,50 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 ```
 
 - 路由传参数
+    - 匿名路由传参
+        - 路由中声明参数 Navigator.push 需要Widget接收 下面自组建要使用 需要使用Provider向下传递
+
+       ```
+        Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const Detail(title: '匿名参数anonymous传递的参数'),
+                    ),
+                  )
+       ```
+
+        - 接收路由参数
+          ```
+          class BlogDetail extends StatefulWidget {
+              final int id;  
+              // 默认构造函数
+              BlogDetail(Key key, require this.id):super(key:key);  
+          }
+          ```
+
+- 命名路由传参 https://docs.flutter.dev/cookbook/navigation/navigate-with-arguments
+    - 命名路由传参
+        - Navigator.pushNamed(context, '路由名称', {arguments: {id: id}})
+        - 代码示例
+
+  ```
+   Navigator.pushNamed(context, '/detail', {arguments: {id: '命名路由传递过来的参数'}}) 
+  ``` 
+
+    - 组建接收命名路由参数
+        - ModalRoute.of(context).settings.arguments
+
+   ```
+  class ScreenArguments {
+      final String name;
+      final num age;
+      ScreenArguments(this.name, this.age);
+    }
+    final ScreenArguments args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    int id = arguments['id'];
+   ```
+
 - Drawer 导航
 - BottomNavigationBar 导航
 - Tab 导航

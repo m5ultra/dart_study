@@ -1,12 +1,4 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-
-class ScreenArguments {
-  final String name;
-  final num age;
-
-  ScreenArguments(this.name, this.age);
-}
 
 class Detail extends StatelessWidget {
   const Detail({Key? key}) : super(key: key);
@@ -42,12 +34,9 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
     return Center(
       child: Column(
         children: [
-          Text('命名路由传递参数name: ${args.name}'),
-          Text('命名路由传递参数name: ${args.age}'),
           ElevatedButton(
               onPressed: () => Navigator.pop(context), child: const Text('返回')),
         ],
@@ -94,12 +83,14 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: [
           ElevatedButton(
-              onPressed: () => Navigator.pushNamed(
-                    context,
-                    'Detail',
-                    arguments: ScreenArguments('Deni', 88),
-                  ),
+              onPressed: () => Navigator.pushNamed(context, '/detail'),
               child: const Text('跳转详情')),
+          ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/detail/1'),
+              child: const Text('跳转详情01')),
+          ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/detail/2'),
+              child: const Text('跳转详情02')),
           ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '未知'),
               child: const Text('触发未知路由 404')),
@@ -152,5 +143,53 @@ class _UnknownPageState extends State<UnknownPage> {
       ),
     );
     ;
+  }
+}
+
+class Detail2 extends StatelessWidget {
+  final String id; // 可以通过Provider 传递给子组建
+  const Detail2({Key? key, required this.id}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print(id);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('商品详情页面'),
+        leading: const Icon(Icons.menu),
+        actions: const [Icon(Icons.settings)],
+        elevation: 0,
+      ),
+      body: const Detail2Page(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        backgroundColor: Colors.green,
+        elevation: 0.0,
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+
+class Detail2Page extends StatefulWidget {
+  const Detail2Page({Key? key,}) : super(key: key);
+
+  @override
+  State<Detail2Page> createState() => _Detail2PageState();
+}
+
+class _Detail2PageState extends State<Detail2Page> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          Text('商品🆔 是'),
+          ElevatedButton(onPressed: () => Navigator.pop(context), child: const Text('Back'))
+        ],
+      ),
+    );
   }
 }

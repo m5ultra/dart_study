@@ -33,8 +33,13 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Detail())),
+              onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const Detail(title: '匿名参数anonymous传递的参数'),
+                    ),
+                  ),
               child: const Text('Click me'))
         ],
       ),
