@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text('跳转详情01')),
           ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/detail2/2',
-                  arguments: {'name': 'Deni02', 'age': 888}),
+                  arguments: ScreenArguments('Deni', 108)),
               child: const Text('跳转详情02')),
           ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '未知'),
