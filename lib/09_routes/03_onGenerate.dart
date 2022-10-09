@@ -86,15 +86,61 @@ class _HomePageState extends State<HomePage> {
               onPressed: () => Navigator.pushNamed(context, '/detail'),
               child: const Text('跳转详情')),
           ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/detail/1'),
+              onPressed: () => Navigator.pushNamed(context, '/detail2/1',
+                  arguments: ScreenArguments('Deni', 88)),
               child: const Text('跳转详情01')),
           ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/detail/2'),
+              onPressed: () => Navigator.pushNamed(context, '/detail2/2',
+                  arguments: {'name': 'Deni02', 'age': 888}),
               child: const Text('跳转详情02')),
           ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '未知'),
               child: const Text('触发未知路由 404')),
         ],
+      ),
+    );
+  }
+}
+
+class Detail2 extends StatefulWidget {
+  const Detail2({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<Detail2> createState() => _Detail2State();
+}
+
+class _Detail2State extends State<Detail2> {
+  @override
+  Widget build(BuildContext context) {
+    final ScreenArguments args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    print('args $args');
+    print(args.name);
+    print(args.age);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('商品详情页面'),
+        leading: const Icon(Icons.menu),
+        actions: const [Icon(Icons.settings)],
+        elevation: 0,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text('商品🆔 是'),
+            ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Back'))
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        backgroundColor: Colors.green,
+        elevation: 0.0,
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -146,50 +192,9 @@ class _UnknownPageState extends State<UnknownPage> {
   }
 }
 
-class Detail2 extends StatelessWidget {
-  final String id; // 可以通过Provider 传递给子组建
-  const Detail2({Key? key, required this.id}) : super(key: key);
+class ScreenArguments {
+  final String name;
+  final num age;
 
-  @override
-  Widget build(BuildContext context) {
-    print(id);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('商品详情页面'),
-        leading: const Icon(Icons.menu),
-        actions: const [Icon(Icons.settings)],
-        elevation: 0,
-      ),
-      body: const Detail2Page(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        backgroundColor: Colors.green,
-        elevation: 0.0,
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
-
-
-class Detail2Page extends StatefulWidget {
-  const Detail2Page({Key? key,}) : super(key: key);
-
-  @override
-  State<Detail2Page> createState() => _Detail2PageState();
-}
-
-class _Detail2PageState extends State<Detail2Page> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Text('商品🆔 是'),
-          ElevatedButton(onPressed: () => Navigator.pop(context), child: const Text('Back'))
-        ],
-      ),
-    );
-  }
+  ScreenArguments(this.name, this.age);
 }

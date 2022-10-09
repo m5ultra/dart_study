@@ -722,6 +722,9 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
                     MaterialPageRoute(
                       builder: (context) =>
                           const Detail(title: '匿名参数anonymous传递的参数'),
+                      settings: RouteSettings(
+                           arguments: settings.arguments,
+                         ),
                     ),
                   )
        ```
@@ -729,10 +732,12 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
         - 接收路由参数
           ```
           class BlogDetail extends StatefulWidget {
-              final int id;  
+              final String title;  
               // 默认构造函数
-              BlogDetail(Key key, require this.id):super(key:key);  
+              BlogDetail(Key key, require this.title):super(key:key);  
           }
+          // 构造函数就收参数比较麻烦 如果有很多子组建还是使用Provider
+          final ScreenArguments args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
           ```
 
 - 命名路由传参 https://docs.flutter.dev/cookbook/navigation/navigate-with-arguments
@@ -741,14 +746,19 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
         - 代码示例
 
   ```
-   Navigator.pushNamed(context, '/detail', {arguments: {id: '命名路由传递过来的参数'}}) 
+    class ScreenArguments {
+      final String name;
+      final num age;
+      ScreenArguments(this.name, this.age);
+    }
+   Navigator.pushNamed(context, '/detail', ScreenArguments('Deni', 88)}) 
   ``` 
 
     - 组建接收命名路由参数
         - ModalRoute.of(context).settings.arguments
 
    ```
-  class ScreenArguments {
+    class ScreenArguments {
       final String name;
       final num age;
       ScreenArguments(this.name, this.age);
@@ -756,6 +766,55 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     final ScreenArguments args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
     int id = arguments['id'];
    ```
+- 动态路由
+  - 跳转
+  ```
+     class ScreenArguments {
+      final String name;
+      final num age;
+      ScreenArguments(this.name, this.age);
+    }
+    Navigator.pushNamed(context, '/detail2/1',arguments: ScreenArguments('Deni', 88))
+  ```
+  - 拦截路由 把setting.arguments
+ ```
+       onGenerateRoute: (RouteSettings settings) {
+        print('settings: $settings');
+        if (settings.name == '/') {
+          return MaterialPageRoute(builder: (context) => const Home());
+        }
+
+        if (settings.name == '/detail') {
+          return MaterialPageRoute(builder: (context) => const Detail());
+        }
+
+        // 例如详情页面 /details/:id
+        Uri uri = Uri.parse(settings.name as String);
+        if (uri.pathSegments.length == 2 &&
+            uri.pathSegments.first == 'detail2') {
+          String id = uri.pathSegments[1];
+          return MaterialPageRoute(
+           // 把arguments 透传给组建
+            builder: (context) => const Detail2(),
+            settings: RouteSettings(
+              arguments: settings.arguments,
+            ),
+          );
+        }
+        // 所有的都没有匹配 跳转到404 页面
+        return MaterialPageRoute(builder: (context) => const Unknown());
+      },
+ ```
+- 获取参数 后代子组建 都可以通过 ModalRoute.of(context)!.settings.arguments 获取还有参数校验的功能
+```
+    class ScreenArguments {
+      final String name;
+      final num age;
+      ScreenArguments(this.name, this.age);
+    }
+    final ScreenArguments args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    int id = arguments['id'];
+```
 
 - Drawer 导航
 - BottomNavigationBar 导航
