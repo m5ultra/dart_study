@@ -833,6 +833,13 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
   - onTap
     - 导航的点击事件 (一般会更新导航索引)
 - Tab 导航
+  - DefaultTabController
+    - length 声明导航的数量
+    - child 指定子组建
+  - TabBar 导航菜单
+    - tabs 导航菜单数组
+  - TabBarView 导航页面
+    - children 多个导航页面内容
 
 ### 表单
 

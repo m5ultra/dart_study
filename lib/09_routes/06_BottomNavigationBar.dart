@@ -76,7 +76,8 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         items: bottomNavItems,
         currentIndex: currentIndex,
-        type: BottomNavigationBarType.fixed,
+        // type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.shifting,
         onTap: (index) {
           switchPage(index);
         },

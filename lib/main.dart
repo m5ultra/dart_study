@@ -27,7 +27,8 @@ import 'package:flutter/material.dart';
 // import '09_routes/03_onGenerate.dart';
 // import '09_routes/04_arguments.dart';
 // import '09_routes/05.drawer.dart';
-import '09_routes/06_BottomNavigationBar.dart';
+// import '09_routes/06_BottomNavigationBar.dart';
+import '09_routes/07_Tabs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       // 状态管理
       debugShowCheckedModeBanner: false,
-      home: const Home(), // 不设置路由的时候 这里生效
+      home: Home(), // 不设置路由的时候 这里生效
 
       // 命名路由开始
       // routes: {
