@@ -47,6 +47,8 @@ class Home extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.tab,
           ),
           toolbarHeight: 0, // 隐藏title  顶部组建
+          backgroundColor: Colors.white,
+          elevation: 0.5,
         ),
         body: TabBarView(
           children: _views,
