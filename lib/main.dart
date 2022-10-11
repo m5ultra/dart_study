@@ -26,7 +26,8 @@ import 'package:flutter/material.dart';
 // import '09_routes/02_namedRoute.dart';
 // import '09_routes/03_onGenerate.dart';
 // import '09_routes/04_arguments.dart';
-import '09_routes/05.drawer.dart';
+// import '09_routes/05.drawer.dart';
+import '09_routes/06_BottomNavigationBar.dart';
 
 void main() {
   runApp(const MyApp());

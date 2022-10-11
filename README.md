@@ -824,6 +824,14 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - 抽屉菜单头部组建
   - AboutListTile 关于弹窗
 - BottomNavigationBar 导航
+  - items
+    - 包含导航 (BottomNavigationBar) 的列表
+  - currentIndex
+    - 当前导航索引
+  - type
+    - 导航类型 (BottomNavigationBarType)
+  - onTap
+    - 导航的点击事件 (一般会更新导航索引)
 - Tab 导航
 
 ### 表单
