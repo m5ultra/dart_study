@@ -843,4 +843,35 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
 
 ### 表单
 
+- 01.Switch 开关组建
+    - value 开关的值 一般与状态绑定
+    - onChange 开关状态改变的时候调用
+    - activeColor 开关开启时圆圈的颜色
+    - activeTrackColor 开关开启时轨道颜色
+    - inactiveThumpColor 开关关闭时圆圈颜色
+    - inactiveTrackColor 开关关闭时轨道颜色
+    - IOS 风格开关 CupertinoSwitch 
+- 02.Checkbox 复选框
+  - CheckBox
+    - value
+    - onChange
+    - activeColor 选中时复选框的背景颜色
+    - checkColor 选中时复选框中对号的颜色
+  - CheckBoxListTile
+    - title
+    - subTitle
+
+- 03.Radio 复选框
+  - value 
+  - onChange
+  - groupValue
+- RadioListTile
+    - value 
+    - onChanged 
+    - groupValue 選擇組的值
+
+- 04.textField 复选框
+- 05.日历
+- Form
+
 ### 其他
