@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import 'dart:io';
 // import '01_base/01_Hello.dart';
 // import '01_base/02_text.dart';
 // import '02_layout/01_container.dart';
@@ -33,7 +34,8 @@ import 'package:flutter/material.dart';
 // import '10_form/02_checkBox.dart';
 // import '10_form/03_Radio.dart';
 // import '10_form/04_textField.dart';
-import '10_form/05_calendar.dart';
+// import '10_form/05_calendar.dart';
+import '10_form/06_form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       // 状态管理
       debugShowCheckedModeBanner: false,
-      home: Home(), // 不设置路由的时候 这里生效
+      home: const Home(), // 不设置路由的时候 这里生效
 
       // 命名路由开始
       // routes: {

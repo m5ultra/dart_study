@@ -888,8 +888,18 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - initialDatePickMode (year | day)
     - initialEntryMode (calendar | input)
   - showTimePicker 时间选择器
-  
 
 - Form
+  - 表单容器
+  - 使用步骤：
+    - 创建表单元素, 并以GlobalKey作为唯一标识
+    - 添加带验证逻辑的 TextFormField 到Form中
+    - 创建按钮以验证和提交表单
+  - Form
+    - key GlobalKey
+    - child 子组建
+  - TextFormField 输入框
+    - 与TextField区别： TextFormField 必须在Form内使用 & 带有验证器
+    - validator 验证器
 
 ### 其他
