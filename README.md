@@ -871,7 +871,25 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - groupValue 選擇組的值
 
 - 04.textField 复选框
+  - autofocus
+  - keyboardType
+  - obscureText 密码框
+  - onChange(v) 内容更改时自动调用
+  - decoration 样式修饰
+    - labelText 标题
+    - hintText (提示文字-placeholder)
+    - maxLines 显示行数 文本域
 - 05.日历
+  - CalendarDatePick 日历选择器
+    - initialCalendarMode
+      - DatePickerMode.day
+      - DatePickerMode.year
+  - showDickPick 日期选择器
+    - initialDatePickMode (year | day)
+    - initialEntryMode (calendar | input)
+  - showTimePicker 时间选择器
+  
+
 - Form
 
 ### 其他
