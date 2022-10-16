@@ -665,7 +665,7 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
      Navigator
              .push(
                  context, MaterialPageRoute(builder: (context) => 组建名称())
-    )  
+    )
    ```
 
 - 匿名路由
@@ -732,9 +732,9 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
         - 接收路由参数
           ```
           class BlogDetail extends StatefulWidget {
-              final String title;  
+              final String title;
               // 默认构造函数
-              BlogDetail(Key key, require this.title):super(key:key);  
+              BlogDetail(Key key, require this.title):super(key:key);
           }
           // 构造函数就收参数比较麻烦 如果有很多子组建还是使用Provider
           final ScreenArguments args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
@@ -751,8 +751,8 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
       final num age;
       ScreenArguments(this.name, this.age);
     }
-   Navigator.pushNamed(context, '/detail', ScreenArguments('Deni', 88)}) 
-  ``` 
+   Navigator.pushNamed(context, '/detail', ScreenArguments('Deni', 88)})
+  ```
 
     - 组建接收命名路由参数
         - ModalRoute.of(context).settings.arguments
@@ -850,7 +850,7 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - activeTrackColor 开关开启时轨道颜色
     - inactiveThumpColor 开关关闭时圆圈颜色
     - inactiveTrackColor 开关关闭时轨道颜色
-    - IOS 风格开关 CupertinoSwitch 
+    - IOS 风格开关 CupertinoSwitch
 - 02.Checkbox 复选框
   - CheckBox
     - value
@@ -862,12 +862,12 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - subTitle
 
 - 03.Radio 复选框
-  - value 
+  - value
   - onChange
   - groupValue
 - RadioListTile
-    - value 
-    - onChanged 
+    - value
+    - onChanged
     - groupValue 選擇組的值
 
 - 04.textField 复选框
@@ -897,9 +897,32 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
     - 创建按钮以验证和提交表单
   - Form
     - key GlobalKey
+      - final GlobalKey<FormState> _formKey GlobalKey<FormState>()
+      - _formKey.currentState.validate()
+      - _formKey.currentState.save()
+      - _formKey.currentState.reset()
     - child 子组建
   - TextFormField 输入框
     - 与TextField区别： TextFormField 必须在Form内使用 & 带有验证器
     - validator 验证器
+    - obscureText
+    - onSaved 设定表单字段的值 类似 setState 执行时间是在 Form save() 方法执行之后执行
 
 ### 其他
+
+- 动画
+  - Why
+    - UI界面设计合理的动画 可以让用户觉得更加流畅 、 直观 可以极大提高和改善用户体验
+  - What (实现原理)
+    - 动画就是动起来的画面
+    - 视觉暂留: 画面经视神经进入大脑后, 不会立即消失 (会存留一段时间)
+    - 帧(Frame): 单个的画面在学术上叫帧
+    - 每秒钟展示的帧数简称fps (Frame pre Second)
+  - 动画分类
+    - 补间(tween)动画
+      - 在补充动画中我们定义开始点和结束点、时间线以及定义转换时间 和 速度曲线.
+      - 然后有系统计算 从开始点到结束点从而形成动画效果
+      - 例如: 透明度从 0 到 1, 颜色从 0 到 255
+    - 拟物动画
+- 国际化
+- 多主题
