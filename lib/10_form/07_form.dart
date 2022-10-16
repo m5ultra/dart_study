@@ -84,7 +84,9 @@ class _HomeState extends State<Home> {
                       child: const Text('Click me'),
                     ),
                   ),
-                  const SizedBox( width: 20, ),
+                  const SizedBox(
+                    width: 20,
+                  ),
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {

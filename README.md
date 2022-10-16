@@ -924,5 +924,90 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
       - 然后有系统计算 从开始点到结束点从而形成动画效果
       - 例如: 透明度从 0 到 1, 颜色从 0 到 255
     - 拟物动画
+      - 是对真实世界的动画进行建模 使动画效果类似于现实中的物理效果
+      - 例如: 弹簧 阻尼 重力 抛物线
+    - Animation
+      - 是Flutter动画库中的一个核心类. 它包含动画的值和状态两个属性. 定义了动画一系列监听函数
+      - 监听函数
+        - 监听值
+          - addListener
+          - removeListener
+        - 监听状态
+          - addStatusListener
+          - removeStatusListener
+        - 动画状态
+          - AnimationStatus.dismissed 初始状态
+          - AnimationStatus.completed 结束状态
+          - AnimationStatus.forward 动画处在从开始到结束的运行状态
+          - AnimationStatus.reverse 动画处在从结束到开始的运行状态
+    -  AnimationControler 负责动画执行的类
+       - duration 执行时间
+       - reverseDuration 动画反方向执行时间
+       - lowerBound=0.0 动画最小值
+       - upperBound=1.0 动画的最大值
+       - value 动画的初始值 默认是 lowerBound
+       - vsync 这是一个TickProvider 用来创建Ticker对象
+       - 当创建一个 AnimationControl 时  需要传递一个 vsync参数
+         - vsync的作用: 防止屏幕外动画(动画页面切到后台时). 消耗必须要的资源
+         - 通过将 SingleTickerProviderStateMixin 添加到类定义中 可以将stateful对象作为vsync的值
+
+        ```
+        class AnimationDemo extends StatefulWidget {
+        const AnimationDemo({super.key});
+
+        @override
+        State<AnimationDemo> createState() => _AnimationDemoState();
+        }
+
+        class _AnimationDemoState extends State<AnimationDemo> with SingleTickerProviderStateMixin {
+        @override
+        Widget build(BuildContext context) {
+            // this 可以作为vsync的值
+            return Container();
+        }
+        }
+        ```
+        - AnimationControll 具有控制动画的方法
+        - AnimationControll.forward() // 正向执行
+        - AnimationControll.reverse() // 反向执行
+        - AnimationControll.dispose() // 用来释放动画资源 (在不使用时调用该方法 否则会造成资源泄漏)
+        - AnimationControll.stop()
+    - Tween
+      - AnimationControll 动画生成值的默认区间是 0.0 到 1.0 如果需要使用不同的区间 和 数据类型, 需要使用Tween(补间动画)
+      - Tween 唯一职责就是定义从输入范围 到 输出范围的映射.
+      - Tween<double>(begin: 初始值, end: 结束值)
+      - ColorTween(begin: Colors.white, end: Colors.black)
+
+    - CurvedAnimation
+      - 简介: 动画执行的速度有多种(匀速、先慢后快、先快后慢) 这里的速度指定是动画曲线
+      - CurvedAnimation的目的是为AnimationController添加动画曲线
+      - 组建:
+        - CurvedAnimation(parent: controller, curve: Curves.easeIn)
+            - parent (动画控制器对象)
+            - curve  (正向执行的动画曲线)
+            - reverseCurve (反向执行的动画曲线)
+            - Curves 包含动画效果
+              - https://api.flutter.dev/flutter/animation/Curves-class.html
+
+    - 动画的使用步骤:
+      - 创建动画控制器
+        - controller = AnimationController(duration, vsync);
+      - 创建动画
+        - 动画曲线 CurvedAnimation
+        - 补间动画 Tween
+      - 监听动画
+        - addListener()
+        - addStatusListener()
+      - 执行动画
+        - controller.forward()
+        - controller.reverse()
+ - 交织动画
+   - What 交织动画时候多个叠加而成的复杂动画
+   - 例如: 组建的变化可能涉及 高度 宽度 颜色 透明度 位置等
+   - 需要给每个动画设置时间间隔 Interval
+   - Transform 对组建进行矩阵变换
+   - 平移: Transform.transform()
+   - 旋转: Transform.rotate()
+   - 缩放: Transform.scale()
 - 国际化
 - 多主题
