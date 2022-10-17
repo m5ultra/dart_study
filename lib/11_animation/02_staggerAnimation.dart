@@ -52,7 +52,9 @@ class _AnimationDemoState extends State<AnimationDemo>
       parent: controller,
       curve: const Interval(0.0, 0.5),
     )
-      ..addListener(() {})
+      ..addListener(() {
+        setState(() {});
+      })
       ..addStatusListener((state) {
         if (state == AnimationStatus.completed) {
           controller.reverse();

@@ -1009,5 +1009,65 @@ const list02 = [0, ...list]; // [0, 1, 2, 3]
    - 平移: Transform.transform()
    - 旋转: Transform.rotate()
    - 缩放: Transform.scale()
+ - Hero 动画
+   - Hero 动画来实现跨页面的动画效果
+     - 在不同的页面中声明一个共享组建 Hero
+     - 由于共享组建在不同的页面中的位置 外观等不同 路由切换时 形成动画效果
+   - 如何实现
+     - 在页面A中定义起始Hero组建 (source Hero), 声明tag
+     - 在页面B中定义目标hero组建 (destination Hero) 绑定相同的tag
+     - 页面跳转时 通过Navigator 传递tag
+   - Hero
+     - tag 路由切换时 共享组建的标记
+     - child 声明子组建
 - 国际化
+  - i18n - internationalization
+  - 组建国际化
+  - 文本的国际化 开发着自己写的内容
+  - 实现步骤：
+    - flutter_localizations
+    - 文档地址： https://pub.dev/packages/localization
 - 多主题
+  - 主题： UI风格 样式 皮肤
+    - 主题风格通过 theme 来定义 从而实现整个App风格的统一
+    - 一旦设置了主题 那么应用程序中某些Widget, 就会直接使用主题的样式
+  - 组建
+    - ThemeData 指定全局风格
+      - Brightness  (Brightness.light | Brightness.dart)
+      - primaryColor | accentColor
+      - buttonTheme |  cardTheme | iconTheme | textTheme
+    - Theme  不需要使用全局样式时使用
+      - Theme.of(context) 获取上下文中主题信息
+  - 主题适配
+    - 声明不同的主题
+      - CustomTheme
+
+        ```
+        import 'package:flutter/material.dart';
+
+        class CustomTheme {
+          static const double _titleFontSize = 20;
+          static final ThemeData lightTheme = ThemeData(
+            primaryColor: Colors.purple[100],
+            primaryTextTheme: const TextTheme(
+              subtitle1: TextStyle(color: Colors.yellow, fontSize: _titleFontSize),
+            ),
+          );
+
+          static final ThemeData dartTheme = ThemeData(
+            primaryColor: Colors.purple[100],
+            primaryTextTheme: const TextTheme(
+              subtitle1: TextStyle(color: Colors.grey, fontSize: _titleFontSize),
+            ),
+          );
+        }
+
+        ```
+  - 使用主题
+    - import 'customThem.dart'
+    - theme CustomTheme.lightTheme
+    - darkTheme CustomTheme.lightTheme
+    - theme ThemeDate.lightTheme // 系统主题亮色
+    - darkTheme ThemeDate.darkTheme // 系统主题暗色
+
+

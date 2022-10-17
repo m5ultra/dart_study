@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // import '01_base/01_Hello.dart';
 // import '01_base/02_text.dart';
 // import '02_layout/01_container.dart';
@@ -36,7 +37,9 @@ import 'package:flutter/material.dart';
 // import '10_form/06_form.dart';
 // import '10_form/07_form.dart';
 // import '11_animation/01_animation.dart';
-import '11_animation/02_staggerAnimation.dart';
+// import '11_animation/02_staggerAnimation.dart';
+// import '11_animation/03_heroAnimation.dart';
+import '12_multiTheme/01_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +54,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       // 状态管理
       debugShowCheckedModeBanner: false,
-      home: const Home(), // 不设置路由的时候 这里生效
+      home: const Home(),
+      // 不设置路由的时候 这里生效
 
       // 命名路由开始
       // routes: {
@@ -93,8 +97,26 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         // fontFamily: 'FiraCode',
+        primaryColor: Colors.amber,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: Colors.cyanAccent,
+        ),
         primarySwatch: Colors.purple,
+        // 新按钮无效
+        buttonTheme: const ButtonThemeData(
+          textTheme: ButtonTextTheme.accent,
+          height: 50.0,
+          splashColor: Colors.amber,
+          padding: EdgeInsets.all(15),
+        ),
+        // 文本默认样式
+        textTheme: const TextTheme(
+          subtitle1: TextStyle(fontSize: 20, color: Colors.purpleAccent),
+        ),
+        iconTheme: const IconThemeData(color: Colors.red),
+        cardTheme: const CardTheme(),
       ),
+      darkTheme: null,
     );
   }
 }
